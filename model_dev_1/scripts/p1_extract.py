@@ -1,22 +1,23 @@
-import pandas as pd 
+import pandas as pd
+from sklearn.preprocessing import OrdinalEncoder
 
 ## get data 
 
-# original link: https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8 
-# data download link: 
-datalink = 'https://data.lacity.org/api/views/2nrs-mtv8/rows.csv?date=20231115&accessType=DOWNLOAD'
+datalink = 'https://data.cdc.gov/api/views/i2vk-mgdh/rows.csv?accessType=DOWNLOAD'
 
 df = pd.read_csv(datalink)
+
+
+## get column names
+df.columns
+
+#get data size and 5 random rows
 df.size
 df.sample(5)
 
 
-## save as csv to WK9/code/model_dev/data/raw
-df.to_csv('WK9/code/model_dev/data/raw/crime_data.csv', index=False)
+## save as csv to model_dev_1/data/raw
+df.to_csv('model_dev_1/data/raw/heart_disease.csv', index=False)
 
-## save as pickle to WK9/code/model_dev/data/raw
-df.to_pickle('WK9/code/model_dev/data/raw/crime_data.pkl')
-
-
-# LAPD reporting districts 
-## original link: https://geohub.lacity.org/datasets/39b404bd22804807ba0f0e1628e585f2/explore
+## save as pickle to model_dev_1/data/raw
+df.to_pickle('model_dev_1/data/raw/heart_disease.pkl')
