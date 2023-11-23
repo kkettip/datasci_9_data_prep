@@ -75,7 +75,7 @@ df = df[df['stratification1'] != 'Overall' ]
 #check for counts in each of the catgories and to see if "Overall" is removed
 df.stratification1.value_counts()
 
-## perform ordinal encoding on county
+## perform ordinal encoding on stratification1
 enc = OrdinalEncoder()
 enc.fit(df[['stratification1']])
 df['stratification1'] = enc.transform(df[['stratification1']])
@@ -103,7 +103,7 @@ df = df[df['stratification2'] != 'Overall' ]
 #check for counts in each of the catgories and to see if "Overall" is removed
 df.stratification2.value_counts()
 
-## perform ordinal encoding on county
+## perform ordinal encoding on stratification2
 enc = OrdinalEncoder()
 enc.fit(df[['stratification2']])
 df['stratification2'] = enc.transform(df[['stratification2']])
@@ -114,3 +114,49 @@ df_mapping_stratification2['stratification2_ordinal'] = df_mapping_stratificatio
 df_mapping_stratification2.head(5)
 # save mapping to csv
 df_mapping_stratification2.to_csv('model_dev_1/data/processed/mapping_stratification2.csv', index=False)
+
+
+
+
+## locationdesc --> will need to encode this
+#locationdesc: counties
+df.locationdesc.value_counts()
+
+## perform ordinal encoding on locationdesc
+enc = OrdinalEncoder()
+enc.fit(df[['locationdesc']])
+df['locationdesc'] = enc.transform(df[['locationdesc']])
+
+## create dataframe with mapping
+df_mapping_locationdesc = pd.DataFrame(enc.categories_[0], columns=['locationdesc'])
+df_mapping_locationdesc['locationdesc_ordinal'] = df_mapping_locationdesc.index
+df_mapping_locationdesc.head(5)
+# save mapping to csv
+df_mapping_locationdesc.to_csv('model_dev_1/data/processed/mapping_locationdesc.csv', index=False)
+
+
+
+
+
+## locationabbr --> will need to encode this
+#locationabbr: US states
+df.locationabbr.value_counts()
+
+## perform ordinal encoding on locationabbr
+enc = OrdinalEncoder()
+enc.fit(df[['locationabbr']])
+df['locationabbr'] = enc.transform(df[['locationabbr']])
+
+## create dataframe with mapping
+df_mapping_locationabbr = pd.DataFrame(enc.categories_[0], columns=['locationabbr'])
+df_mapping_locationabbr['locationabbr_ordinal'] = df_mapping_locationabbr.index
+df_mapping_locationabbr.head(5)
+# save mapping to csv
+df_mapping_locationabbr.to_csv('model_dev_1/data/processed/mapping_locationabbr.csv', index=False)
+
+
+
+#### save temporary csv files for model testing
+df.head(1000).to_csv('model_dev_1/data/processed/heart_disease_1k.csv', index=False)
+df.sample(5000).to_csv('model_dev_1/data/processed/heart_disease_5k.csv', index=False)
+df.sample(10000).to_csv('model_dev_1/data/processed/heart_disease_10k.csv', index=False)
