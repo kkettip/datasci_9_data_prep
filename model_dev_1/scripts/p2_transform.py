@@ -86,4 +86,31 @@ df_mapping_stratification1['stratification1_ordinal'] = df_mapping_stratificatio
 df_mapping_stratification1.head(5)
 
 # save mapping to csv
-df_mapping_stratification1.to_csv('mapping_stratification1.csv', index=False)
+df_mapping_stratification1.to_csv('model_dev_1/data/processed/mapping_stratification1.csv', index=False)
+
+
+
+
+
+## stratification2 --> will need to encode this
+#stratification2: race and ethnicity
+df.stratification2.value_counts()
+
+
+#remove "Overall" category
+df = df[df['stratification2'] != 'Overall' ]
+
+#check for counts in each of the catgories and to see if "Overall" is removed
+df.stratification2.value_counts()
+
+## perform ordinal encoding on county
+enc = OrdinalEncoder()
+enc.fit(df[['stratification2']])
+df['stratification2'] = enc.transform(df[['stratification2']])
+
+## create dataframe with mapping
+df_mapping_stratification2 = pd.DataFrame(enc.categories_[0], columns=['stratification2'])
+df_mapping_stratification2['stratification2_ordinal'] = df_mapping_stratification2.index
+df_mapping_stratification2.head(5)
+# save mapping to csv
+df_mapping_stratification2.to_csv('model_dev_1/data/processed/mapping_stratification2.csv', index=False)
