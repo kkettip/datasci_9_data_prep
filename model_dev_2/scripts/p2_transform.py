@@ -121,21 +121,21 @@ df_mapping_pathogen.to_csv('model_dev_2/data/processed/mapping_pathogen.csv', in
 
 
 
-## locationdesc --> will need to encode this
-#locationdesc: counties
-df.locationdesc.value_counts()
+# ## locationdesc --> will need to encode this
+# #locationdesc: counties
+# df.locationdesc.value_counts()
 
-## perform ordinal encoding on locationdesc
-enc = OrdinalEncoder()
-enc.fit(df[['locationdesc']])
-df['locationdesc'] = enc.transform(df[['locationdesc']])
+# ## perform ordinal encoding on locationdesc
+# enc = OrdinalEncoder()
+# enc.fit(df[['locationdesc']])
+# df['locationdesc'] = enc.transform(df[['locationdesc']])
 
-## create dataframe with mapping
-df_mapping_locationdesc = pd.DataFrame(enc.categories_[0], columns=['locationdesc'])
-df_mapping_locationdesc['locationdesc_ordinal'] = df_mapping_locationdesc.index
-df_mapping_locationdesc.head(5)
-# save mapping to csv
-df_mapping_locationdesc.to_csv('model_dev_1/data/processed/mapping_locationdesc.csv', index=False)
+# ## create dataframe with mapping
+# df_mapping_locationdesc = pd.DataFrame(enc.categories_[0], columns=['locationdesc'])
+# df_mapping_locationdesc['locationdesc_ordinal'] = df_mapping_locationdesc.index
+# df_mapping_locationdesc.head(5)
+# # save mapping to csv
+# df_mapping_locationdesc.to_csv('model_dev_1/data/processed/mapping_locationdesc.csv', index=False)
 
 
 
@@ -157,9 +157,9 @@ df_mapping_locationdesc.to_csv('model_dev_1/data/processed/mapping_locationdesc.
 # # save mapping to csv
 # df_mapping_locationabbr.to_csv('model_dev_1/data/processed/mapping_locationabbr.csv', index=False)
 
-
+len(df)
 
 #### save temporary csv files for model testing
-df.head(1000).to_csv('model_dev_1/data/processed/heart_disease_1k.csv', index=False)
-df.sample(5000).to_csv('model_dev_1/data/processed/heart_disease_5k.csv', index=False)
-df.sample(10000).to_csv('model_dev_1/data/processed/heart_disease_10k.csv', index=False)
+df.head(200).to_csv('model_dev_2/data/processed/covid_200.csv', index=False)
+df.sample(400).to_csv('model_dev_2/data/processed/covid_400.csv', index=False)
+df.sample(800).to_csv('model_dev_2/data/processed/covid_800.csv', index=False)
