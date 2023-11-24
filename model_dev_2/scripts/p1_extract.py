@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.preprocessing import OrdinalEncoder
 
 ## get data 
-#https://data.cdc.gov/Heart-Disease-Stroke-Prevention/Heart-Disease-Mortality-Data-Among-US-Adults-35-by/i2vk-mgdh
+#https://data.cdc.gov/Health-Statistics/Provisional-Percent-of-Deaths-for-COVID-19-Influen/53g5-jf7x
 
 datalink = 'https://data.cdc.gov/resource/53g5-jf7x.csv'
 
