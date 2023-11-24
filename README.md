@@ -28,7 +28,7 @@ The indepedent variables for this dataset are `'start_date'`, `'end_date'`, `'gr
 The dependent variables for this dataset are `'deaths'`, `'total_deaths'`, and `'percent_deaths'`.
 
 
-# Regression is the intended machine learning tasks for both datasets.
+## Regression is the intended machine learning tasks for both datasets.
 
 ## Clean and transform the data
 Steps
