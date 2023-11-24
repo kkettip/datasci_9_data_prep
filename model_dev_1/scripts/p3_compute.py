@@ -25,8 +25,8 @@ df.dropna(inplace=True)
 len(df)
 
 # Define the features and the target variable
-X = df.drop('stratification1', axis=1)  # Features (all columns except 'arrest')
-y = df['stratification1']               # Target variable (arrest)
+X = df.drop('stratification1', axis=1)  # Features (all columns except 'stratification1')
+y = df['stratification1']               # Target variable (stratification1)
 
 # Initialize the StandardScaler
 scaler = StandardScaler()
