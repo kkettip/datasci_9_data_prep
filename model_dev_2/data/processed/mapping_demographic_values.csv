@@ -1,5 +1,5 @@
-demographic_values
-0
-1
-2
-3
+demographic_values,demographic_values_ordinal
+"AI/AN, NH",0
+"Black, NH",1
+"Multiple/Other, NH",2
+"White, NH",3

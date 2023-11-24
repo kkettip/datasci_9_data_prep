@@ -85,7 +85,7 @@ df['demographic_values'] = enc.transform(df[['demographic_values']])
 
 ## create dataframe with mapping
 df_mapping_demographic_values = pd.DataFrame(enc.categories_[0], columns=['demographic_values'])
-df_mapping_demographic_values['demographic_values'] = df_mapping_demographic_values.index
+df_mapping_demographic_values['demographic_values_ordinal'] = df_mapping_demographic_values.index
 df_mapping_demographic_values.head(5)
 
 # save mapping to csv
