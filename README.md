@@ -7,7 +7,7 @@ The dataset contains data on heart disease and mortality for US adults ages 35 a
 
 Columns of the dataset includes: `['year', 'locationabbr', 'locationdesc', 'geographiclevel', 'datasource', 'class', 'topic', 'data_value', 'data_value_unit', 'data_value_type', 'data_value_footnote_symbol', 'data_value_footnote', 'stratificationcategory1', 'stratification1', 'stratificationcategory2', 'stratification2', 'topicid', 'locationid', 'location_1']` 
 
-This dataset contains 59076 rows and 19 columns. 
+This dataset contains 59.1K rows and 19 columns. 
 
 The indepedent variables for this dataset are `'stratification1'`, `'stratification2'`, `'year'`, `'locationabbr'`, and `'locationdesc'`. 
 
@@ -21,7 +21,7 @@ This dataset provides the percentage of deaths for COVID-19, Influenza, and RSV 
 
 Columns of the dataset includes: `['data_as_of', 'start_date', 'end_date', 'group', 'year', 'month','mmwr_week', 'weekending_date', 'state', 'demographic_type','demographic_values', 'pathogen', 'deaths', 'total_deaths','percent_deaths', 'provisional', 'suppressed']` 
 
-This dataset contains 1000 rows and 15 columns. 
+This dataset contains 13.4K rows and 17 columns. 
 
 The indepedent variables for this dataset are `'start_date'`, `'end_date'`, `'group'`, `'year'`, `'month'`, `'mmwr_week'`, `'weekending_date'`, `'state'`, `'demographic_type'`,`'demographic_values`, and `'pathogen'`. 
 
