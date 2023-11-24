@@ -28,10 +28,9 @@ The indepedent variables for this dataset are `'start_date'`, `'end_date'`, `'gr
 The dependent variables for this dataset are `'deaths'`, `'total_deaths'`, and `'percent_deaths'`.
 
 
-## Regression is the intended machine learning tasks for both datasets.
+# Regression is the intended machine learning tasks for both datasets.
 
 ## Clean and transform the data
-
 Steps
 1. Standardize the column names by lowercasing and removing white spaces
 2. Determine the columns that would be used for the machine learning experiments.
@@ -41,7 +40,13 @@ Steps
 6. Convert floats to integers
 7. Encode the categorical variables to numerical values
 8. Scale the data to give equal weights to the categorical values
-9. Save and created cleaned data files
+9. Save and created cleane data files
+
+
+# Challenges
+1. Issue encountered with pushing to github. Received error that file size exceeds Github file limit. This issue was resolved by resetting the repo to its initial state.
+2. Categorical names did not show in map generated after encoding. Issue was resolved by rerunning the code.
+
 
 
 
