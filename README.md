@@ -44,7 +44,7 @@ Steps
 
 
 # Challenges
-1. Issue encountered with pushing to github. Received error that file size exceeds Github file limit. This issue was resolved by resetting the repo to its initial state.
+1. Issue encountered with pushing to github. Received error that file size exceeds Github file limit. This issue was resolved by resetting the repo and commits to its initial state.
 2. Categorical names did not show in map generated after encoding. Issue was resolved by rerunning the code.
 
 
