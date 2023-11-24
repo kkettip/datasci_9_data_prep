@@ -40,7 +40,7 @@ Steps
 6. Convert floats to integers
 7. Encode the categorical variables to numerical values
 8. Scale the data to give equal weights to the categorical values
-9. Save and created cleane data files
+9. Save and create cleaned data files
 
 
 # Challenges
