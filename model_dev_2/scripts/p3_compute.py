@@ -17,7 +17,7 @@ import lime
 from lime import lime_tabular
 
 # Import the clean random sample of 1k data
-df = pd.read_csv('model_dev_1/data/processed/heart_disease_10k.csv')
+df = pd.read_csv('model_dev_2/data/processed/covid_800.csv')
 len(df)
 
 # drop rows with missing values
@@ -25,13 +25,13 @@ df.dropna(inplace=True)
 len(df)
 
 # Define the features and the target variable
-X = df.drop('stratification1', axis=1)  # Features (all columns except 'arrest')
-y = df['stratification1']               # Target variable (arrest)
+X = df.drop('demographic_values', axis=1)  # Features (all columns except 'demographic_values')
+y = df['demographic_values']               # Target variable (demographic_values)
 
 # Initialize the StandardScaler
 scaler = StandardScaler()
 scaler.fit(X) # Fit the scaler to the features
-pickle.dump(scaler, open('model_dev_1/models/scaler_10k.sav', 'wb')) # Save the scaler for later use
+pickle.dump(scaler, open('model_dev_2/models/scaler_800.sav', 'wb')) # Save the scaler for later use
 
 # Fit the scaler to the features and transform
 X_scaled = scaler.transform(X)
@@ -44,9 +44,9 @@ X_val, X_test, y_val, y_test = train_test_split(X_temp, y_temp, test_size=0.5, r
 (X_train.shape, X_val.shape, X_test.shape)
 
 # Pkle the X_train for later use in explanation
-pickle.dump(X_train, open('model_dev_1/models/X_train_10k.sav', 'wb'))
+pickle.dump(X_train, open('model_dev_2/models/X_train_800.sav', 'wb'))
 # Pkle X.columns for later use in explanation
-pickle.dump(X.columns, open('model_dev_1/models/X_columns_10k.sav', 'wb'))
+pickle.dump(X.columns, open('model_dev_2/models/X_columns_800.sav', 'wb'))
 
 
 
@@ -177,7 +177,7 @@ shap.summary_plot(explanation, X_test, plot_type="bar")
 explainer = lime_tabular.LimeTabularExplainer(
     training_data=X_train,
     feature_names=X.columns,
-    class_names=['female', 'male'],
+    class_names=['White, NH', 'Black, NH', 'Multiple/Other, NH', 'AI/AN, NH'],
     mode='classification',
 )
 
@@ -185,10 +185,10 @@ explainer = lime_tabular.LimeTabularExplainer(
 observation_1 = 20
 # Get the explanation for Logistic Regression and show the prediction
 exp = explainer.explain_instance(X_val[observation_1], xgboost.predict_proba, num_features=9)
-exp.save_to_file('model_dev_1/models/observation_1.html')
+exp.save_to_file('model_dev_2/models/observation_1.html')
 
 ## save the model
-pickle.dump(xgboost, open('model_dev_1/models/xgboost_10k.sav', 'wb'))
+pickle.dump(xgboost, open('model_dev_2/models/xgboost_800.sav', 'wb'))
 
 
 
