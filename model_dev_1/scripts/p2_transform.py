@@ -51,7 +51,7 @@ df.shape
 df.sample(5)
 
 #drop rows with NaN
-df = df.dropna()
+df = df.dropna(inplace=True)
 
 df.shape
 df.sample(5)
